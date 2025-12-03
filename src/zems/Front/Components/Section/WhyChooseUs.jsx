@@ -1,4 +1,9 @@
-import { FaHeadset, FaShippingFast, FaTags, FaTruck, FaUndo } from "react-icons/fa";
+import {
+  FaHeadset,
+  FaShippingFast,
+  FaTags,
+  FaUndo,
+} from "react-icons/fa";
 
 const WhyChooseUs = () => {
   return (
