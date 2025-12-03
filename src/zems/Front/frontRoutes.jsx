@@ -3,7 +3,7 @@ import ProductPage from "./Pages/ProductPage";
 
 const frontRoutes = [
   {
-    path: "index",
+    path: "/",
     element: <HomePage />,
   },
   {
