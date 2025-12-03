@@ -1,5 +1,7 @@
-const Button = ({children}) => {
-  return <button class="bg-black text-white px-5">{children}</button>;
+const Button = ({ children }) => {
+  return (
+    <button class=" text-white px-5 cursor-pointer">{children}</button>
+  );
 };
 
 export default Button;
