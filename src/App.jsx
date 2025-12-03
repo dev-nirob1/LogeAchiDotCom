@@ -5,11 +5,13 @@ import Footer from "./Components/Section/Footer";
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col">
       <Header />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

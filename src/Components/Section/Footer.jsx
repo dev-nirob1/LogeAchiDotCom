@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import Button from "../Elements/Button";
-import InputField from "../Elements/InputField";
 
 const Footer = () => {
   return (
@@ -69,7 +67,7 @@ const Footer = () => {
         </div>
 
         {/* foooter bottom part  */}
-        <div className="border-t py-5 flex justify-between items-center">
+        <div className="border-t py-6 text-center">
           <p>&copy; copyright 2025. Developed by webpoka</p>
         </div>
       </div>
