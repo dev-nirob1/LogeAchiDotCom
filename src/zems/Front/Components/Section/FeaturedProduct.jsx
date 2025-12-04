@@ -1,3 +1,4 @@
+import SectionTitle from "../../../../Components/Widgets/SectionTitle";
 import ShoppingCard from "../Widget/ShoppingCard";
 
 const FeaturedProduct = () => {
@@ -49,11 +50,12 @@ const FeaturedProduct = () => {
   return (
     <div className="section-padding bg-gray-50">
       <div className="container mx-auto">
-        <h3 className="text-4xl font-bold mb-8">Featured Product</h3>
+        <SectionTitle>Featured Product</SectionTitle>
+        {/* <h3 className="text-4xl font-bold mb-8"></h3> */}
         <div className="grid grid-cols-4 gap-4">
-            {featuredProducts.map((item) => {
-          return <ShoppingCard item={item} key={item.id} />;
-        })}
+          {featuredProducts.map((item) => {
+            return <ShoppingCard item={item} key={item.id} />;
+          })}
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import BestSellingProduct from "../Components/Section/BestSellingProduct";
 import FeaturedProduct from "../Components/Section/FeaturedProduct";
 import HeroSection from "../Components/Section/HeroSection";
 import NewArrivals from "../Components/Section/NewArrivals";
@@ -7,10 +8,10 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-
       <WhyChooseUs />
       <FeaturedProduct />
       <NewArrivals />
+      <BestSellingProduct/>
     </>
   );
 };

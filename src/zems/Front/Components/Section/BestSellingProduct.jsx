@@ -1,46 +1,46 @@
 import SectionTitle from "../../../../Components/Widgets/SectionTitle";
 import ShoppingCard from "../Widget/ShoppingCard";
 
-const NewArrivals = () => {
-  const newArrivals = [
+export default function BestSelling() {
+  const bestSellingProducts = [
     {
       id: 1,
-      name: "Urban Oversized Hoodie",
-      price: 2199,
+      name: "Classic Cotton T-Shirt",
+      price: 1299,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 2,
-      name: "Lightweight Sports Jacket",
-      price: 2999,
+      name: "Premium Denim Jacket",
+      price: 3499,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 3,
-      name: "Premium Cotton Polo Shirt",
-      price: 1599,
+      name: "Stylish Running Sneakers",
+      price: 2899,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 4,
-      name: "Slim Fit Denim Jeans",
-      price: 2499,
+      name: "Casual Slim Fit Jeans",
+      price: 1999,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 5,
-      name: "Classic High-Top Sneakers",
-      price: 3299,
+      name: "Modern Hoodie Sweatshirt",
+      price: 2499,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 6,
-      name: "Soft Linen Casual Shirt",
+      name: "Elegant Summer Dress",
       price: 1799,
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -48,17 +48,15 @@ const NewArrivals = () => {
   ];
 
   return (
-    <div className="section-padding bg-gray-50">
+    <section className="section-padding">
       <div className="container mx-auto">
-        <SectionTitle>New Arrivals</SectionTitle>
+        <SectionTitle>Best selling products</SectionTitle>
         <div className="grid grid-cols-4 gap-4">
-          {newArrivals.map((item) => {
+          {bestSellingProducts.map((item) => {
             return <ShoppingCard item={item} key={item.id} />;
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default NewArrivals;
+}
