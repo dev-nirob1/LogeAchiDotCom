@@ -7,7 +7,7 @@ import {
 
 const WhyChooseUs = () => {
   return (
-    <div className="section-padding">
+    <div className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="why-choose-card rounded text-gray-500 border border-gray-200 p-4 grid grid-cols-4 items-center">

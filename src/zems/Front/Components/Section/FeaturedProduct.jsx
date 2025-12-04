@@ -48,7 +48,7 @@ const FeaturedProduct = () => {
   ];
 
   return (
-    <div className="section-padding bg-gray-50">
+    <div className="section-padding">
       <div className="container mx-auto">
         <SectionTitle>Featured Product</SectionTitle>
         {/* <h3 className="text-4xl font-bold mb-8"></h3> */}
