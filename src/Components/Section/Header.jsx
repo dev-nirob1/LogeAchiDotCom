@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header>
+    <header className="shadow">
       <div className="container mx-auto">
         {/* top navbar  */}
         <div className="top-bar py-2 flex justify-between border-b border-gray-200">
@@ -19,12 +19,11 @@ const Header = () => {
           {/* cart, profile icons  */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-                <FaCartArrowDown /> Cart
+              <FaCartArrowDown /> Cart
             </div>
             <div className="flex items-center gap-2">
-                <FaUser /> My Account
+              <FaUser /> My Account
             </div>
-            
           </div>
         </div>
 
