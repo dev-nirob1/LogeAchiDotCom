@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="min-h-screen bg-gray-200">
+    <section className="min-h-screen grid place-content-center bg-gray-200">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 items-center">
           <div>
@@ -11,8 +11,9 @@ const HeroSection = () => {
               BUY NOW
             </button>
           </div>
-          <div className="w-full h-full">
-            <img className="w-full h-full" src="/t-shirt.png" alt="" />
+          <div className="w-full h-full relative">
+            <img className="w-full h-full z-10 relative" src="/hero-1.png" alt="" />
+            <div className="h-full w-full absolute inset-0 rounded-full z-0 bg-yellow-500"></div>
           </div>
         </div>
       </div>
