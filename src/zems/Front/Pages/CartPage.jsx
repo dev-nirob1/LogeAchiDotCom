@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CartPage = () => {
   return (
     <div className="section-padding">
@@ -51,7 +53,7 @@ const CartPage = () => {
                   </button>
                 </td>
               </tr>
-              <tr className="not-last:border-b">
+              <tr className="not-last:border-b not-last:border-b-gray-50">
                 <td className="py-2 flex items-center gap-4">
                   <img
                     className="h-16 w-16"
@@ -86,7 +88,7 @@ const CartPage = () => {
                   </button>
                 </td>
               </tr>
-              <tr className="not-last:border-b">
+              <tr className="not-last:border-b not-last:border-b-gray-50">
                 <td className="py-2 flex items-center gap-4">
                   <img
                     className="h-16 w-16"
@@ -146,9 +148,9 @@ const CartPage = () => {
                   <h5 className="font-semibold text-neutral-800">Total</h5>
                   <p className="font-bold text-neutral-700">৳ 1520</p>
                 </div>
-                <button className="p-2 mt-2 rounded bg-neutral-900 text-white font-semibold w-full">
+                <Link to="/checkout"><button className="p-2 mt-2 cursor-pointer rounded bg-neutral-900 text-white font-semibold w-full">
                   Proceed To Checkout
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>
