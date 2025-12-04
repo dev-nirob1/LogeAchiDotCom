@@ -1,5 +1,6 @@
 import FeaturedProduct from "../Components/Section/FeaturedProduct";
 import HeroSection from "../Components/Section/HeroSection";
+import NewArrivals from "../Components/Section/NewArrivals";
 import WhyChooseUs from "../Components/Section/WhyChooseUs";
 
 const HomePage = () => {
@@ -8,7 +9,8 @@ const HomePage = () => {
       <HeroSection />
 
       <WhyChooseUs />
-      <FeaturedProduct/>
+      <FeaturedProduct />
+      <NewArrivals />
     </>
   );
 };
