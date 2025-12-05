@@ -3,7 +3,8 @@ import ProductSuggetion from "../Components/Section/ProductSuggetion";
 
 const ProductDetails = () => {
   return (
-    <div className="section-padding">
+    <>
+    <div className="section-padding bg-gray-50">
       <div className="container mx-auto px-2">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="w-full-h-full">
@@ -48,6 +49,7 @@ const ProductDetails = () => {
               <input
                 type="number"
                 className="max-w-20 border border-gray-200 rounded-sm"
+                placeholder="1"
               />
               <button className="px-4 py-2 bg-neutral-900 rounded-sm text-white font-medium">
                 Add To Cart
@@ -88,9 +90,12 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <ProductSuggetion/>
+
       </div>
+        {/* suggested product  */}
     </div>
+        <ProductSuggetion/>
+    </>
   );
 };
 

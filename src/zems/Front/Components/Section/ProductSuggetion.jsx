@@ -33,7 +33,7 @@ const ProductSuggetion = () => {
     },
   ];
   return (
-    <div className="container mx-auto mt-14">
+    <div className="container mx-auto section-padding ">
       <h3 className="text-3xl font-medium mb-4">Product you may like</h3>
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {productSuggetion.map((item) => {
