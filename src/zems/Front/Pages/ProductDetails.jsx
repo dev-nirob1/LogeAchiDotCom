@@ -1,4 +1,5 @@
 import { FaAngleDown } from "react-icons/fa";
+import ProductSuggetion from "../Components/Section/ProductSuggetion";
 
 const ProductDetails = () => {
   return (
@@ -44,8 +45,13 @@ const ProductDetails = () => {
 
             {/* quantity update  */}
             <div className="flex items-center gap-4 mt-8">
-                <input type="number" className="max-w-20 border border-gray-200 rounded-sm" />
-                <button className="px-4 py-2 bg-neutral-900 rounded-sm text-white font-medium">Add To Cart</button>
+              <input
+                type="number"
+                className="max-w-20 border border-gray-200 rounded-sm"
+              />
+              <button className="px-4 py-2 bg-neutral-900 rounded-sm text-white font-medium">
+                Add To Cart
+              </button>
             </div>
 
             {/* description  */}
@@ -82,8 +88,8 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
+        <ProductSuggetion/>
       </div>
-      product details
     </div>
   );
 };
