@@ -4,62 +4,73 @@ const Footer = () => {
   return (
     <footer className=" text-white bg-neutral-900">
       <div className="container mx-auto">
-        <div className="grid grid-cols-4 py-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 py-10 px-2">
           <div>
             <Link to="/">
-              <img
-                src="https://scionassetbd.com/uploads/brands/logo-2.png"
-                alt=""
-              />
+              <h2 className="text-4xl font-bold italic">লগেআছি.COM</h2>
+              {/* <img
+              className="max-h-12"
+              src="https://scionassetbd.com/uploads/brands/logo.png"
+              alt=""
+            /> */}
             </Link>
-            <p className="mt-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Provident, vitae.
+            <p className="my-6">
+              Your trusted online destination for quality fashion. Affordable
+              prices, premium products, and fast delivery—everything in one
+              place.
             </p>
           </div>
 
-          <div>
-            <h5 className="sub-title mb-6">Quick Links</h5>
+          {/* customer link  */}
+          <div className="mb-6">
+            <h5 className="sub-title mb-6">Customer Links</h5>
             <ul className="space-y-3">
               <li>
-                <Link to="/">My Account </Link>
+                <Link to="/login">My Account</Link>
               </li>
               <li>
-                <Link to="/">Order History</Link>
+                <Link to="/orders">Order History</Link>
               </li>
               <li>
-                <Link to="/">Stores </Link>
+                <Link to="/cart">My Cart</Link>
               </li>
               <li>
-                <Link to="/">Discount </Link>
+                <Link to="/checkout">Checkout</Link>
               </li>
             </ul>
           </div>
+
+          {/* useful links */}
           <div>
-            <h5 className="sub-title mb-6">Quick Links</h5>
+            <h5 className="sub-title mb-6">Useful Links</h5>
             <ul className="space-y-3">
               <li>
-                <Link to="/">My Account </Link>
+                <Link to="/products">All Products</Link>
               </li>
               <li>
-                <Link to="/">Order History</Link>
+                <Link to="/category/tshirt">Shop by Category</Link>
               </li>
               <li>
-                <Link to="/">Stores </Link>
+                <Link to="/contact">Contact Us</Link>
               </li>
               <li>
-                <Link to="/">Discount </Link>
+                <Link to="/offers">Latest Discount</Link>
               </li>
             </ul>
           </div>
-          <div>
+
+          {/* Newsletter  */}
+          <div className="my-6">
             <h5 className="sub-title mb-6">Newsletter Signup</h5>
             <p className="pb-4 text-lg">
               Register now to get updates on promotions.
             </p>
             <div className="flex">
-              <input className="bg-white" placeholder="Enter your Email" />
-              <button className="text-white bg-blue-500 px-5 cursor-pointer">
+              <input
+                className="bg-white max-w-10/12 rounded-l"
+                placeholder="Enter your Email"
+              />
+              <button className="text-white bg-blue-500 px-4 rounded-r cursor-pointer">
                 Subscribe
               </button>
             </div>
@@ -68,7 +79,16 @@ const Footer = () => {
 
         {/* foooter bottom part  */}
         <div className="border-t py-6 text-center">
-          <p>&copy; copyright 2025. Developed by webpoka</p>
+          <p>
+            &copy; copyright 2025. Developed by{" "}
+            <a
+              className="text-amber-400"
+              href="https://webpoka.com/"
+              target="_blank"
+            >
+              Webpoka
+            </a>
+          </p>
         </div>
       </div>
     </footer>
