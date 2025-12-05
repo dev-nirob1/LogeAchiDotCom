@@ -51,7 +51,7 @@ const NewArrivals = () => {
     <div className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <SectionTitle>New Arrivals</SectionTitle>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {newArrivals.map((item) => {
             return <ShoppingCard item={item} key={item.id} />;
           })}

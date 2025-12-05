@@ -51,7 +51,7 @@ export default function BestSelling() {
     <section className="section-padding">
       <div className="container mx-auto">
         <SectionTitle>Best selling products</SectionTitle>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {bestSellingProducts.map((item) => {
             return <ShoppingCard item={item} key={item.id} />;
           })}

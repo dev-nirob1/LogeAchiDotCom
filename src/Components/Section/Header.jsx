@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import {
   FaBars,
   FaCartArrowDown,
@@ -16,7 +16,6 @@ const Header = () => {
   return (
     <header className="shadow">
       <div className="container mx-auto">
-        {/* bottom navbar  */}
 
         <nav className="py-4 flex justify-between items-center">
           {/* logo  */}
@@ -62,7 +61,7 @@ const Header = () => {
             </li>
             {/* dropdown menu  */}
             <li>
-              <Link className="flex gap-1 items-center px-5 py-2 hover:text-amber-600 transition">
+              <Link to="/login" className="flex gap-1 items-center px-5 py-2 hover:text-amber-600 transition">
                 <FaRegUser />
                 My Account
               </Link>
