@@ -1,2 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
- @plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --color-primary: #9c8f7f;
+  --color-secondary: #dad1c6;
+  --color-accent: #f6f2ed;
+
+  --color-dark: #3b332d;
+  --color-lighter-dark: #5a514a;
+
+  --font-Montserrat: 'Montserrat';
+  --font-Inter: 'Inter';
+}
+@layer base {
+  body {
+    @apply text-lighter-dark leading-relaxed font-Montserrat;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h5 {
+    @apply text-dark font-Inter;
+  }
+}
