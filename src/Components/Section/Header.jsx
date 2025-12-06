@@ -1,67 +1,57 @@
-// import { useState } from "react";
-import {
-  FaBars,
-  FaCartArrowDown,
-  FaHeadset,
-  FaRegUser,
-  FaUser,
-  FaUserAlt,
-} from "react-icons/fa";
+import { useState } from "react";
+import { FaBars, FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleHamburger = ()=> {
+    setIsOpen(!isOpen)
+    // console.log(isOpen);
+    // console.log('btn clciked');
+  }
 
   return (
-    <header className="shadow">
-      <div className="container mx-auto">
-
+    <header className="shadow font-medium relative">
+      <div className="my-container">
         <nav className="py-4 flex justify-between items-center">
           {/* logo  */}
           <Link to="/">
-            <h2 className="text-4xl font-bold italic">লগেআছি.COM</h2>
-            {/* <img
-              className="max-h-12"
-              src="https://scionassetbd.com/uploads/brands/logo.png"
+            <img
+              className="max-h-16"
+              src="https://softstitch.netlify.app/logo.png"
               alt=""
-            /> */}
+            />
           </Link>
+
           {/* hamburger menu for mobile  */}
-          <div className="hamburger md:hidden">
+          <div onClick={handleHamburger} className="hamburger md:hidden text-4xl">
             <FaBars />
           </div>
+
           {/* nav links  */}
-          <ul className="font-medium hidden md:flex items-center gap-3">
+          <ul className={`bg-primary md:bg-transparent text-white md:text-black absolute md:static md:flex-row z-50 left-0 top-0 flex-col space-y-3 md:space-y-0 h-screen md:h-auto py-8 md:py-0 w-[50vw] md:w-auto items-center md:gap-4 ${isOpen ? 'block' : 'hidden'} md:flex`}>
             <li>
-              <Link
-                to="/"
-                className="px-5 py-2 hover:text-amber-600 transition"
-              >
+              <Link to="/" className="nav-links">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                to="/products"
-                className="px-5 py-2 hover:text-amber-600 transition"
-              >
+              <Link to="/products" className="nav-links">
                 Products
               </Link>
             </li>
             <li className="relative">
-              <Link
-                to="/cart"
-                className="flex items-center px-5 py-2 hover:text-amber-600 transition"
-              >
+              <Link to="/cart" className="flex items-center nav-links">
                 <IoCartOutline className="text-xl" />
                 Cart
               </Link>
-              <div className="absolute top-0 right-1">0</div>
+              <div className="absolute top-0 right-0">0</div>
             </li>
             {/* dropdown menu  */}
             <li>
-              <Link to="/login" className="flex gap-1 items-center px-5 py-2 hover:text-amber-600 transition">
+              <Link to="/login" className="flex gap-1 items-center nav-links">
                 <FaRegUser />
                 My Account
               </Link>

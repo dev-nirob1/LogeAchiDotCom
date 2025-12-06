@@ -10,8 +10,8 @@
   --color-dark: #3b332d;
   --color-lighter-dark: #5a514a;
 
-  --font-Montserrat: 'Montserrat';
-  --font-Inter: 'Inter';
+  --font-Montserrat: "Montserrat";
+  --font-Inter: "Inter";
 }
 @layer base {
   body {
@@ -25,4 +25,8 @@
   h5 {
     @apply text-dark font-Inter;
   }
+  .my-container {
+    @apply max-w-[90%] md:container mx-auto px-2
+  }
+  .nav-links {@apply transition p-2 hover:text-primary}
 }
