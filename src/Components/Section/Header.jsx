@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleHamburger = ()=> {
-    setIsOpen(!isOpen)
+  const handleHamburger = () => {
+    setIsOpen(!isOpen);
     // console.log(isOpen);
     // console.log('btn clciked');
-  }
+  };
 
   return (
     <header className="shadow font-medium relative">
@@ -26,12 +26,19 @@ const Header = () => {
           </Link>
 
           {/* hamburger menu for mobile  */}
-          <div onClick={handleHamburger} className="hamburger md:hidden text-4xl">
+          <div
+            onClick={handleHamburger}
+            className="hamburger md:hidden text-4xl"
+          >
             <FaBars />
           </div>
 
           {/* nav links  */}
-          <ul className={`bg-primary md:bg-transparent text-white md:text-black absolute md:static md:flex-row z-50 left-0 top-0 flex-col space-y-3 md:space-y-0 h-screen md:h-auto py-8 md:py-0 w-[50vw] md:w-auto items-center md:gap-4 ${isOpen ? 'block' : 'hidden'} md:flex`}>
+          <ul
+            className={`bg-primary md:bg-transparent text-white md:text-black absolute md:static md:flex-row z-50 left-0 top-0 flex-col space-y-3 md:space-y-0 h-screen md:h-auto py-8 md:py-0 w-[60vw] md:w-auto items-center md:gap-4 ${
+              isOpen ? "block" : "hidden"
+            } md:flex`}
+          >
             <li>
               <Link to="/" className="nav-links">
                 Home
