@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="text-accent text-sm bg-neutral-900">
       <div className="my-container">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 py-10 px-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 py-10">
           <div>
            <Link to="/">
             <img

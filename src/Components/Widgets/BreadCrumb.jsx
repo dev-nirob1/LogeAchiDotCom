@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const BreadCrumb = () => {
+  const location = useLocation();
+  console.log(location);
   return (
     <div className="bg-accent">
       <ul className="my-container flex items-center space-x-2 py-4">
