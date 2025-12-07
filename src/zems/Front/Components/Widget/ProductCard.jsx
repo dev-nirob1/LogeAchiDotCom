@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ShoppingCard = ({ item }) => {
+const ProductCard = ({ item }) => {
   const { name, price, image } = item;
   return (
     <div className="card group p-3 rounded-lg bg-white border border-accent hover:shadow-lg transition duration-300">
@@ -27,4 +27,4 @@ const ShoppingCard = ({ item }) => {
   );
 };
 
-export default ShoppingCard;
+export default ProductCard;

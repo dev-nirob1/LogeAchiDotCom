@@ -1,3 +1,4 @@
+import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import ProductCard from "../Components/Widget/ProductCard";
 
 const ProductPage = () => {
@@ -85,6 +86,8 @@ const ProductPage = () => {
   ];
 
   return (
+    <div >
+      <BreadCrumb/>
       <section className="my-container">
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
@@ -102,6 +105,7 @@ const ProductPage = () => {
           })}
         </div>
       </section>
+    </div>
   );
 };
 

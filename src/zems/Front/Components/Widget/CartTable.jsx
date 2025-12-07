@@ -34,10 +34,10 @@ const CartTable = () => {
             </div>
           </td>
 
-          <td>৳ 1400</td>
+          <td>৳ 2800</td>
 
           <td>
-            <button className="bg-red-500 rounded text-white px-2 py-1">
+            <button className="bg-red-600 rounded text-white px-2 py-1">
               Remove
             </button>
           </td>
