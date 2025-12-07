@@ -45,20 +45,34 @@ const FeaturedProduct = () => {
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
+    {
+      id: 7,
+      name: "Elegant Summer Dress",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      id: 8,
+      name: "Elegant Summer Dress",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   ];
 
   return (
-    <div className="section-padding">
-      <div className="container mx-auto">
+    <section className="bg-accent">
+      <div className="my-container">
         <SectionTitle>Featured Product</SectionTitle>
         {/* <h3 className="text-4xl font-bold mb-8"></h3> */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           {featuredProducts.map((item) => {
             return <ShoppingCard item={item} key={item.id} />;
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

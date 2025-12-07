@@ -45,10 +45,24 @@ export default function BestSelling() {
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
+    {
+      id: 7,
+      name: "Elegant Summer Dress",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      id: 8,
+      name: "Elegant Summer Dress",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   ];
 
   return (
-    <section className="section-padding">
+    <section className="bg-accent">
       <div className="container mx-auto px-4">
         <SectionTitle>Best selling products</SectionTitle>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">

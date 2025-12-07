@@ -45,10 +45,24 @@ const NewArrivals = () => {
       image:
         "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
+    {
+      id: 7,
+      name: "Soft Linen Casual Shirt",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      id: 8,
+      name: "Soft Linen Casual Shirt",
+      price: 1799,
+      image:
+        "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   ];
 
   return (
-    <div className="section-padding bg-gray-50">
+    <section>
       <div className="container mx-auto">
         <SectionTitle>New Arrivals</SectionTitle>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -57,7 +71,7 @@ const NewArrivals = () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

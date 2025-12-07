@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className=" text-white bg-neutral-900">
-      <div className="container mx-auto">
+    <footer className="text-accent text-sm bg-neutral-900">
+      <div className="my-container">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 py-10 px-2">
           <div>
-            <Link to="/">
-              <h2 className="text-4xl font-bold italic">লগেআছি.COM</h2>
-              {/* <img
-              className="max-h-12"
-              src="https://scionassetbd.com/uploads/brands/logo.png"
+           <Link to="/">
+            <img
+              className="w-auto max-h-16"
+              src="https://softstitch.netlify.app/footer-logo.png"
               alt=""
-            /> */}
-            </Link>
+            />
+          </Link>
+
             <p className="my-6">
               Your trusted online destination for quality fashion. Affordable
               prices, premium products, and fast delivery—everything in one
@@ -23,7 +23,7 @@ const Footer = () => {
 
           {/* customer link  */}
           <div className="mb-6">
-            <h5 className="sub-title mb-6">Customer Links</h5>
+            <h5 className="sub-title mb-6 text-accent">Customer Links</h5>
             <ul className="space-y-3">
               <li>
                 <Link to="/login">My Account</Link>
@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* useful links */}
           <div>
-            <h5 className="sub-title mb-6">Useful Links</h5>
+            <h5 className="sub-title mb-6 text-accent">Useful Links</h5>
             <ul className="space-y-3">
               <li>
                 <Link to="/products">All Products</Link>
@@ -60,17 +60,17 @@ const Footer = () => {
           </div>
 
           {/* Newsletter  */}
-          <div className="my-6">
-            <h5 className="sub-title mb-6">Newsletter Signup</h5>
+          <div className="mb-6">
+            <h5 className="sub-title mb-6 text-accent">Newsletter Signup</h5>
             <p className="pb-4 text-lg">
               Register now to get updates on promotions.
             </p>
             <div className="flex">
               <input
-                className="bg-white max-w-10/12 rounded-l"
+                className="bg-white max-w-7/12 rounded-l"
                 placeholder="Enter your Email"
               />
-              <button className="text-white bg-blue-500 px-4 rounded-r cursor-pointer">
+              <button className="text-white bg-primary px-3 rounded-l-none rounded-r cursor-pointer">
                 Subscribe
               </button>
             </div>
@@ -78,11 +78,11 @@ const Footer = () => {
         </div>
 
         {/* foooter bottom part  */}
-        <div className="border-t py-6 text-center">
+        <div className="border-t border-t-gray-50 text-center">
           <p>
             &copy; copyright 2025. Developed by{" "}
             <a
-              className="text-amber-400"
+              className="text-primary"
               href="https://webpoka.com/"
               target="_blank"
             >

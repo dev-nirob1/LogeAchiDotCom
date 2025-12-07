@@ -25,25 +25,32 @@
   h5 {
     @apply text-dark font-Inter;
   }
-  p{
-    @apply my-3
+  p {
+    @apply my-3;
   }
   .my-container {
-    @apply max-w-[90%] md:container mx-auto px-2
+    @apply max-w-[90%] md:container mx-auto px-2;
   }
-  .nav-links {@apply transition p-2 hover:text-primary}
+  .nav-links {
+    @apply transition p-2 hover:text-primary;
+  }
 
-  section{
+  section {
     @apply py-12;
   }
-  button{@apply cursor-pointer}
-  .image{@apply w-full h-full}
-  img {@apply w-full h-full object-cover}
-  .hero-title{
+  button {
+    @apply cursor-pointer rounded;
+  }
+  .image {
+    @apply w-full h-full;
+  }
+  img {
+    @apply w-full h-full object-cover;
+  }
+  .hero-title {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold;
   }
   .sub-title {
-  @apply font-semibold text-xl;
-
-}
+    @apply font-semibold text-xl text-dark;
+  }
 }

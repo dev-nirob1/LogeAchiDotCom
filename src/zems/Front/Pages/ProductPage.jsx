@@ -85,9 +85,9 @@ const ProductPage = () => {
   ];
 
   return (
-    <div className="section-padding">
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center mb-4">
+    <div className="">
+      <section className="my-container">
+        <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
           <select className="rounded">
             <option value="" disabled>
@@ -102,7 +102,7 @@ const ProductPage = () => {
             return <ShoppingCard item={item} key={item.id} />;
           })}
         </div>
-      </div>
+      </section>
     </div>
   );
 };
