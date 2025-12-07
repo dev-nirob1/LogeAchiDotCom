@@ -1,5 +1,9 @@
+import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
+
 const CategoryPage = () => {
-  return <div>CategoryPage</div>;
+  return <div>
+    <BreadCrumb/>
+    </div>;
 };
 
 export default CategoryPage;
