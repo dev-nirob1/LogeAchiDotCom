@@ -19,19 +19,17 @@ const HeroSection = () => {
             <div className="grid md:grid-cols-2 items-center">
               <div className="py-8">
                 <h1 className="hero-title">
-                  Wear Bold Styles Made For Modern You
+                  Classic White T-Shirt
                 </h1>
                 <p className="md:text-lg">
-                  Discover premium everyday wear designed for comfort,
-                  confidence, and effortless style. Shop the latest fashion
-                  trends now.
+                 Stay comfortable and stylish with this premium cotton t-shirt. Perfect for casual wear or layering with jackets.
                 </p>
                 <button className="bg-primary text-white mt-2 rounded px-6 py-2">
                   BUY NOW
                 </button>
               </div>
               <div className="image relative">
-                <img className="z-10 relative" src="/hero-1.png" alt="" />
+                <img className="z-10 relative" src="https://images.unsplash.com/photo-1593032465170-17c3c6b1c8f2?auto=format&fit=crop&w=800&q=80" alt="" />
                 <div className="h-full w-full absolute inset-0 rounded-full z-0 bg-secondary"></div>
               </div>
             </div>

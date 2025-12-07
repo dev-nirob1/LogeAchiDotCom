@@ -1,4 +1,4 @@
-import ShoppingCard from "../Components/Widget/ShoppingCard";
+import ProductCard from "../Components/Widget/ProductCard";
 
 const ProductPage = () => {
   const allProducts = [
@@ -85,7 +85,6 @@ const ProductPage = () => {
   ];
 
   return (
-    <div className="">
       <section className="my-container">
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
@@ -99,11 +98,10 @@ const ProductPage = () => {
         </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
           {allProducts.map((item) => {
-            return <ShoppingCard item={item} key={item.id} />;
+            return <ProductCard item={item} key={item.id} />;
           })}
         </div>
       </section>
-    </div>
   );
 };
 

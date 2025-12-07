@@ -15,7 +15,10 @@ const ShoppingCard = ({ item }) => {
         <Link className="group-hover:text-blue-500" to="/product/1">
           <h5 className="sub-title">{name}</h5>
         </Link>
-        <p>BDT {price} ৳</p>
+        <div className="flex items-center gap-2">
+          <p>BDT {price} ৳</p>
+          <del>{price} ৳</del>
+        </div>
         <button className="w-full py-2 text-white bg-primary">
           Add To Cart
         </button>

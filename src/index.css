@@ -3,9 +3,11 @@
 @plugin "@tailwindcss/forms";
 
 @theme {
-  --color-primary: #9c8f7f;
-  --color-secondary: #dad1c6;
-  --color-accent: #f6f2ed;
+  --color-primary: #b99668;
+  /* --color-secondary: #DCC9A7; */
+  --color-secondary: #ede2cc;
+  --color-accent: #f7f3e8;
+  /* --color-accent: #EDE2CC; */
 
   --color-dark: #3b332d;
   --color-lighter-dark: #5a514a;

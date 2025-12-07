@@ -1,5 +1,5 @@
 import SectionTitle from "../../../../Components/Widgets/SectionTitle";
-import ShoppingCard from "../Widget/ShoppingCard";
+import ProductCard from "../Widget/ProductCard";
 
 export default function BestSelling() {
   const bestSellingProducts = [
@@ -62,12 +62,12 @@ export default function BestSelling() {
   ];
 
   return (
-    <section className="bg-accent">
+    <section>
       <div className="container mx-auto px-4">
         <SectionTitle>Best selling products</SectionTitle>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {bestSellingProducts.map((item) => {
-            return <ShoppingCard item={item} key={item.id} />;
+            return <ProductCard item={item} key={item.id} />;
           })}
         </div>
       </div>

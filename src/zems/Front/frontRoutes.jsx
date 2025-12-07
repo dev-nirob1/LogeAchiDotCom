@@ -1,4 +1,5 @@
 import CartPage from "./Pages/CartPage";
+import CategoryPage from "./Pages/CategoryPage";
 import CheckoutPage from "./Pages/CheckoutPage";
 import HomePage from "./Pages/HomePage";
 import ProductDetails from "./Pages/ProductDetails";
@@ -16,6 +17,10 @@ const frontRoutes = [
   {
     path: "/product/:id",
     element: <ProductDetails />,
+  },
+  {
+    path: "/category/:slug",
+    element: <CategoryPage />,
   },
   {
     path: "/cart",
