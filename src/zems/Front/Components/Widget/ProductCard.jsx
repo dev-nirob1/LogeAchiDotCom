@@ -1,7 +1,21 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { handleAddToCart } from "../../../../store/cartSlice";
 
 const ProductCard = ({ item }) => {
-  const { name, price, image } = item;
+  const {id, name, price, image } = item;
+  const cartData = {
+    id: id,
+    name: name,
+    price:price, 
+    image: image
+  }
+  const dispatch = useDispatch()
+
+  const HandleAddToCart = ()=> {
+    dispatch(handleAddToCart(cartData))
+  }
+
   return (
     <div className="card group p-3 rounded-lg bg-white border border-accent hover:shadow-lg transition duration-300">
       <div className="w-full rounded-md overflow-hidden h-[260px]">
@@ -19,7 +33,7 @@ const ProductCard = ({ item }) => {
           <p>BDT {price} ৳</p>
           <del>{price} ৳</del>
         </div>
-        <button className="w-full py-2 text-white bg-primary">
+        <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary">
           Add To Cart
         </button>
       </div>

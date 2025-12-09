@@ -1,10 +1,10 @@
 import SectionTitle from "../../../../Components/Widgets/SectionTitle";
 import ProductCard from "../Widget/ProductCard";
 
-export default function BestSelling({ bestSelling }) {
+const BestSelling = ({ bestSelling }) => {
   return (
     <section>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <SectionTitle>Best selling products</SectionTitle>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {bestSelling.map((item) => {
@@ -14,4 +14,5 @@ export default function BestSelling({ bestSelling }) {
       </div>
     </section>
   );
-}
+};
+export default BestSelling;

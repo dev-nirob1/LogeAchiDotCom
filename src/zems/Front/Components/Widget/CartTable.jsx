@@ -1,4 +1,4 @@
-const CartTable = () => {
+const CartTable = ({cart}) => {
   return (
     <table className="col-span-4 w-full shadow-sm mb-6">
       <thead className="bg-accent px-5">
@@ -29,12 +29,12 @@ const CartTable = () => {
           <td>
             <div className="flex items-center">
               <button className="px-3 py-1 bg-primary text-white">-</button>
-              <span className="px-4 py-1 bg-accent">0</span>
+              <span className="px-4 py-1 bg-accent">{cart.quantity}</span>
               <button className="px-3 py-1 bg-primary text-white">+</button>
             </div>
           </td>
 
-          <td>৳ 2800</td>
+          <td>৳ {cart.totalAmount}</td>
 
           <td>
             <button className="bg-red-600 rounded text-white px-2 py-1">
