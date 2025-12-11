@@ -1,73 +1,97 @@
 import { useState } from "react";
-import { FaBars, FaRegUser } from "react-icons/fa";
-import { IoCartOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleHamburger = () => {
-    setIsOpen(!isOpen);
-    // console.log(isOpen);
-    // console.log('btn clciked');
-  };
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Products", href: "/products" },
+    { name: "My Account", href: "/account" },
+  ];
 
   return (
-    <header className="shadow font-medium relative">
-      <div className="my-container">
-        <nav className="py-4 flex justify-between items-center">
-          {/* logo  */}
-          <Link to="/">
-            <img
-              className="max-h-16"
-              src="https://softstitch.netlify.app/logo.png"
-              alt=""
-            />
-          </Link>
+    <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-          {/* hamburger menu for mobile  */}
-          <div
-            onClick={handleHamburger}
-            className="hamburger md:hidden text-4xl"
-          >
-            <FaBars />
+        {/* Left: Logo */}
+        <div className="text-2xl font-bold tracking-tight cursor-pointer">
+          FASHION<span className="font-light">SHOP</span>
+        </div>
+
+        {/* Center: Navlinks (one block — hidden on small screens) */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="hover:text-gray-600 transition cursor-pointer"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Right side icons + search */}
+        <div className="flex items-center gap-6">
+
+          {/* Search Desktop */}
+          <div className="hidden md:block relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="border rounded-full py-2 pl-4 pr-10 text-sm w-48
+                         focus:outline-none focus:ring-1 focus:ring-black"
+            />
+            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">🔍</span>
           </div>
 
-          {/* nav links  */}
-          <ul
-            className={`bg-primary md:bg-transparent text-white md:text-black absolute md:static md:flex-row z-50 left-0 top-0 flex-col space-y-3 md:space-y-0 h-screen md:h-auto py-8 md:py-0 w-[60vw] md:w-auto items-center md:gap-4 ${
-              isOpen ? "block" : "hidden"
-            } md:flex`}
+          {/* Cart Icon */}
+          <button className="text-xl relative">
+            🛒
+            <span className="absolute -top-1 -right-2 bg-black text-white text-xs rounded-full px-1.5">
+              2
+            </span>
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <li>
-              <Link to="/" className="nav-links">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/products" className="nav-links">
-                Products
-              </Link>
-            </li>
-            <li className="relative">
-              <Link to="/cart" className="flex items-center nav-links">
-                <IoCartOutline className="text-xl" />
-                Cart
-              </Link>
-              <div className="absolute top-0 right-0">0</div>
-            </li>
-            {/* dropdown menu  */}
-            <li>
-              <Link to="/login" className="flex gap-1 items-center nav-links">
-                <FaRegUser />
-                My Account
-              </Link>
-            </li>
-          </ul>
-        </nav>
+            ☰
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden border-t bg-white px-6 py-4 space-y-4">
+
+          {/* Mobile Search - always visible */}
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="w-full border rounded-full py-2 pl-4 pr-10 text-sm
+                         focus:outline-none focus:ring-1 focus:ring-black"
+            />
+            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">🔍</span>
+          </div>
+
+          {/* Navlinks (same block — reused) */}
+          <nav className="space-y-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block py-1 border-b text-sm font-medium hover:text-gray-600 transition"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}
