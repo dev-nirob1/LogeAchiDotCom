@@ -89,6 +89,7 @@ const ProductPage = () => {
     <div >
       <BreadCrumb/>
       <section className="my-container">
+
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
           <select className="rounded">
@@ -99,10 +100,16 @@ const ProductPage = () => {
             <option value="high-low">Hight to Low</option>
           </select>
         </div>
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+        <div className="grid grid-cols-5 gap-6">
+    <div className="border md:col-span-1">
+
+    </div>
+        <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-8">
           {allProducts.map((item) => {
             return <ProductCard item={item} key={item.id} />;
           })}
+        </div>
         </div>
       </section>
     </div>
