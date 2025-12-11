@@ -88,9 +88,9 @@ const ProductPage = () => {
 
   return (
     <div>
-      <BreadCrumb />
+      <BreadCrumb routeName={'Products'}/>
       <section className="my-container">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center pb-5 mb-6 border-b border-b-accent">
           <h4 className="text-2xl font-medium">All Product</h4>
           <select className="rounded">
             <option value="" disabled>
@@ -109,7 +109,7 @@ const ProductPage = () => {
                 Category
               </h5>
               <ul className="space-y-2">
-                <li className="p-2 bg-accent flex justify-between items-center">
+                <li className="p-2 bg-accent flex justify-between items-center cursor-pointer">
                   Men{" "}
                   <span>
                     <FaAngleDown />

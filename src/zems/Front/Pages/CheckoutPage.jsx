@@ -6,7 +6,7 @@ import CustomerInfoForm from "../Components/Widget/CustomerInfoForm";
 const CheckoutPage = () => {
   return (
     <div>
-      <BreadCrumb />
+      <BreadCrumb routeName={'Checkout'} />
       <section className="my-container">
         <div className="grid md:grid-cols-5 gap-4">
 

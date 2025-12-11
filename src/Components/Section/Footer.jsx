@@ -6,13 +6,13 @@ const Footer = () => {
       <div className="my-container">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 py-10">
           <div>
-           <Link to="/">
-            <img
-              className="w-auto max-h-16"
-              src="https://softstitch.netlify.app/footer-logo.png"
-              alt=""
-            />
-          </Link>
+            <Link to="/">
+              <img
+                className="w-auto max-h-16"
+                src="https://softstitch.netlify.app/footer-logo.png"
+                alt=""
+              />
+            </Link>
 
             <p className="my-6">
               Your trusted online destination for quality fashion. Affordable

@@ -10,7 +10,7 @@ const CartPage = () => {
   console.log(cart);
   return (
     <div>
-      <BreadCrumb />
+      <BreadCrumb routeName={'Cart'} />
       <section className="container mx-auto">
         <div className="grid grid-cols-6 gap-4 items-start">
           {/* cart table  */}
