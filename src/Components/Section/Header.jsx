@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FaCartShopping, FaMagnifyingGlass } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -6,11 +8,11 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
-    { name: "My Account", href: "/account" },
+    { name: "My Account", href: "/login" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-b-accent shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Left: Logo */}
@@ -21,13 +23,12 @@ export default function Navbar() {
         {/* Center: Navlinks (one block — hidden on small screens) */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => (
-            <a
+            <Link to={link.href}
               key={link.name}
-              href={link.href}
               className="hover:text-gray-600 transition cursor-pointer"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -42,16 +43,16 @@ export default function Navbar() {
               className="border rounded-full py-2 pl-4 pr-10 text-sm w-48
                          focus:outline-none focus:ring-1 focus:ring-black"
             />
-            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">🔍</span>
+            <span className="absolute right-3 top-3 text-gray-600 text-sm"><FaMagnifyingGlass/></span>
           </div>
 
           {/* Cart Icon */}
-          <button className="text-xl relative">
-            🛒
-            <span className="absolute -top-1 -right-2 bg-black text-white text-xs rounded-full px-1.5">
+          <Link to="/cart" className="text-xl p-3 relative">
+            <FaCartShopping/>
+            <span className="absolute -top-1 right-0 bg-black text-white text-xs rounded-full px-1.5">
               2
             </span>
-          </button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
