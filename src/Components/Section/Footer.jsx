@@ -65,7 +65,7 @@ const Footer = () => {
             <p className="pb-4 text-lg">
               Register now to get updates on promotions.
             </p>
-            <div className="flex">
+            <div className="flex flex-wrap">
               <input
                 className="bg-white max-w-7/12 rounded-l"
                 placeholder="Enter your Email"
