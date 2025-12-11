@@ -1,3 +1,4 @@
+import { FaAngleDown } from "react-icons/fa";
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import ProductCard from "../Components/Widget/ProductCard";
 
@@ -86,10 +87,9 @@ const ProductPage = () => {
   ];
 
   return (
-    <div >
-      <BreadCrumb/>
+    <div>
+      <BreadCrumb />
       <section className="my-container">
-
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
           <select className="rounded">
@@ -101,15 +101,39 @@ const ProductPage = () => {
           </select>
         </div>
 
-        <div className="grid grid-cols-5 gap-6">
-    <div className="border md:col-span-1">
+        <div className="grid md:grid-cols-5 gap-6">
+          <div className="border border-accent rounded-md p-3 h-fit">
+            {/* filter option  */}
+            <div>
+              <h5 className="sub-title bg-secondary rounded-md p-2 mb-2">
+                Category
+              </h5>
+              <ul className="space-y-2">
+                <li className="p-2 bg-accent flex justify-between items-center">
+                  Men{" "}
+                  <span>
+                    <FaAngleDown />
+                  </span>
+                </li>
+                <li className="p-2 bg-accent flex justify-between items-center cursor-pointer">Women<span>
+                    <FaAngleDown />
+                  </span></li>
+                <li className="p-2 bg-accent flex justify-between items-center cursor-pointer">Baby<span>
+                    <FaAngleDown />
+                  </span></li>
+                <li className="p-2 bg-accent flex justify-between items-center cursor-pointer">Accessories<span>
+                    <FaAngleDown />
+                  </span></li>
+              </ul>
+            </div>
+          </div>
 
-    </div>
-        <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {allProducts.map((item) => {
-            return <ProductCard item={item} key={item.id} />;
-          })}
-        </div>
+          {/* product card  */}
+          <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {allProducts.map((item) => {
+              return <ProductCard item={item} key={item.id} />;
+            })}
+          </div>
         </div>
       </section>
     </div>

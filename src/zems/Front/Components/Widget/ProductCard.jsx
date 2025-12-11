@@ -33,7 +33,7 @@ const ProductCard = ({ item }) => {
           <p>BDT {price} ৳</p>
           <del>{price} ৳</del>
         </div>
-        <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary">
+        <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary mt-2">
           Add To Cart
         </button>
       </div>
