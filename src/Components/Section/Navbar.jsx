@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch, FaUser } from "react-icons/fa";
+import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Navbar = () => {
           </div>
 
           {/* navlinks  */}
-          <ul className="flex items-center text-base font-medium gap-3">
+          <ul className="hidden md:flex items-center text-base font-medium gap-3">
             <li className="nav-links">
               <Link to="/">Home</Link>
             </li>
@@ -30,10 +30,10 @@ const Navbar = () => {
           {/* searchbar cart and profile  */}
 
           <div className="flex items-center gap-6 fa-2xl font-medium">
-            <button className="">
+            <button>
               <FaSearch className="text-xl" />
             </button>
-            <div className="relative">
+            <div className="p-1 relative">
               <Link to="/cart">
                 <FaCartPlus className="text-2xl" />{" "}
                 <span className="text-sm text-white absolute -top-3 -right-4 bg-primary rounded-full px-2 py-1">
@@ -41,10 +41,19 @@ const Navbar = () => {
                 </span>
               </Link>
             </div>
-            <Link to="/flash-sale">
+            <Link to="/login">
               <FaUser className="text-xl" />
             </Link>
           </div>
+
+
+          {/* hamburger Menu Button */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <FaBars className="fa-2xl"/>
+          </button>
         </nav>
       </div>
     </header>
