@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCartShopping, FaMagnifyingGlass } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
