@@ -40,7 +40,7 @@ const CategoriesSection = () => {
           {categories.map((item) => {
             return (
               <Link
-                to={`/category/${item.slug}`}
+                to={`/products/${item.slug}`}
                 key={item.id}
                 className="group relative"
               >

@@ -1,8 +1,8 @@
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import ProductCard from "../Components/Widget/ProductCard";
 
-const CategoryPage = () => {
-    const allProducts = [
+const FlashSale = () => {
+  const allProducts = [
     {
       id: 1,
       name: "Classic Cotton T-Shirt",
@@ -87,8 +87,8 @@ const CategoryPage = () => {
 
   return (
     <div>
-      <BreadCrumb />
-       <section className="my-container">
+      <BreadCrumb routeName={"Flash Sale"} />
+      <section className="my-container">
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
           <select className="rounded">
@@ -99,7 +99,7 @@ const CategoryPage = () => {
             <option value="high-low">Hight to Low</option>
           </select>
         </div>
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {allProducts.map((item) => {
             return <ProductCard item={item} key={item.id} />;
           })}
@@ -109,4 +109,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default FlashSale;

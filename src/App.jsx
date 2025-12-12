@@ -7,7 +7,7 @@ import Navbar from "./Components/Section/Navbar";
 function App() {
   return (
     <div className="flex flex-col">
-      <Header />
+      {/* <Header /> */}
       <Navbar/>
       <div className="flex-1">
         <Outlet />

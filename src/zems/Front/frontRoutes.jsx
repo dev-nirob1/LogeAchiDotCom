@@ -1,9 +1,10 @@
 import CartPage from "./Pages/CartPage";
-import CategoryPage from "./Pages/CategoryPage";
+import CategoryPage from "./Pages/FlashSale";
 import CheckoutPage from "./Pages/CheckoutPage";
 import HomePage from "./Pages/HomePage";
 import ProductDetails from "./Pages/ProductDetails";
 import ProductPage from "./Pages/ProductPage";
+import FlashSale from "./Pages/FlashSale";
 
 const frontRoutes = [
   {
@@ -11,7 +12,7 @@ const frontRoutes = [
     element: <HomePage />,
   },
   {
-    path: "/products",
+    path: "/products/:category?",
     element: <ProductPage />,
   },
   {
@@ -19,8 +20,8 @@ const frontRoutes = [
     element: <ProductDetails />,
   },
   {
-    path: "/category/:slug",
-    element: <CategoryPage />,
+    path: "/flash-sale",
+    element: <FlashSale />,
   },
   {
     path: "/cart",

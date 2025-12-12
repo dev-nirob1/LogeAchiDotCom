@@ -8,7 +8,7 @@ console.log(featured);
       <div className="my-container">
         <SectionTitle>Featured Product</SectionTitle>
         {/* <h3 className="text-4xl font-bold mb-8"></h3> */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {featured.map((item) => {
             return <ProductCard item={item} key={item.id} />;
           })}

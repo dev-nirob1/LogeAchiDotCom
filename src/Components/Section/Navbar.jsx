@@ -7,10 +7,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 border-b border-b-accent py-5">
+    <header className="bg-white z-50 sticky top-0 border-b border-b-accent py-5">
       <div className="my-container">
         <nav className="flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight cursor-pointer">
+          <div className="text-3xl font-bold tracking-tight cursor-pointer">
             FASHION<span className="font-light">SHOP</span>
           </div>
 
