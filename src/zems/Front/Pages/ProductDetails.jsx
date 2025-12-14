@@ -59,37 +59,43 @@ const ProductDetails = () => {
               </div>
 
               {/* description  */}
-              <div className="mt-6 space-y-4">
-                <div className="accordion border rounded-sm border-gray-300">
-                  <div className="accordion-title flex justify-between items-center p-4">
-                    <h5 className="sub-title">Description</h5>
-                    <FaAngleDown />
-                  </div>
-                  <p className="p-4">
-                    The Chocolate Brown With Herringbone Pattern Shirt from Arjo
-                    is the perfect choice for effortless summer style. Crafted
-                    for comfort and breathability, this lightweight shirt keeps
-                    you warn during cool days. With its relaxed fit and timeless
-                    stripes, it’s ideal for both casual outings and laid-back
-                    occasions. If you're looking for premium Full-sleeve shirts
-                    for men in BD, this versatile piece is a must-have. Stay
-                    stylish and comfortable all season long with Arjo. GSM
-                    220-240.
-                  </p>
+              <details
+                class="collapse bg-base-100 border border-base-300"
+                name="my-accordion-det-1"
+                open
+              >
+                <summary class="collapse-title font-semibold">
+                  How do I create an account?
+                </summary>
+                <div class="collapse-content text-sm">
+                  Click the "Sign Up" button in the top right corner and follow
+                  the registration process.
                 </div>
-                <div className="accordion border rounded-sm border-gray-300">
-                  <div className="accordion-title flex justify-between items-center p-4">
-                    <h5 className="sub-title">Description</h5>
-                    <FaAngleDown />
-                  </div>
+              </details>
+              <details
+                class="collapse bg-base-100 border border-base-300"
+                name="my-accordion-det-1"
+              >
+                <summary class="collapse-title font-semibold">
+                  I forgot my password. What should I do?
+                </summary>
+                <div class="collapse-content text-sm">
+                  Click on "Forgot Password" on the login page and follow the
+                  instructions sent to your email.
                 </div>
-                <div className="accordion border rounded-sm border-gray-300">
-                  <div className="accordion-title flex justify-between items-center p-4">
-                    <h5 className="sub-title">Description</h5>
-                    <FaAngleDown />
-                  </div>
+              </details>
+              <details
+                class="collapse bg-base-100 border border-base-300"
+                name="my-accordion-det-1"
+              >
+                <summary class="collapse-title font-semibold">
+                  How do I update my profile information?
+                </summary>
+                <div class="collapse-content text-sm">
+                  Go to "My Account" settings and select "Edit Profile" to make
+                  changes.
                 </div>
-              </div>
+              </details>
             </div>
           </div>
         </div>
