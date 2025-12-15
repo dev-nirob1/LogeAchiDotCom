@@ -1,61 +1,54 @@
-import { useDispatch } from "react-redux";
-import { clearCart } from "../../../../store/cartSlice";
-const CartTable = ({cart}) => {
-  const dispatch = useDispatch()
-  const handleDeleteCart = ()=> {
-    dispatch(clearCart())
-  }
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {Button} from "@/components/ui/button";
+// import { useDispatch } from "react-redux";
+// import { clearCart } from "../../../../store/cartSlice";
+const CartTable = ({ cart }) => {
+  console.log(cart);
+  // const dispatch = useDispatch();
+  // const handleDeleteCart = () => {
+  //   dispatch(clearCart());
+  // };
   return (
-    <table className="col-span-4 w-full shadow-sm mb-6">
-      <thead className="bg-accent px-5">
-        <tr className="px-5">
-          <th className="p-2 text-left">Product</th>
-          <th className="text-left">Price</th>
-          <th className="text-left">Quantity</th>
-          <th className="text-left">Total</th>
-          <th className="text-left">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-         cart?.cart.map(item => {
-        return <tr key={item.id} className="not-last:border-b not-last:border-b-accent">
-          <td className="p-2 flex items-center gap-4">
-            <img
-              className="h-16 w-16"
-              src={item.image}
-              alt=""
-            />
-            <div>
-              <h5 className="font-semibold">{item.name}</h5>
-              <p className="text-sm mt-1">Size: L</p>
-            </div>
-          </td>
-
-          <td>৳ {item.price}</td>
-
-          <td>
-            <div className="flex items-center">
-              <button className="px-3 py-1 bg-primary text-white">-</button>
-              <input className="px-4 py-1 bg-accent" type="text" value={cart.quantity} />
-              {/* <span className="px-4 py-1 bg-accent">{cart.quantity}</span> */}
-              <button className="px-3 py-1 bg-primary text-white">+</button>
-            </div>
-          </td>
-
-          <td>৳ {cart.totalAmount}</td>
-
-          <td>
-            <button onClick={handleDeleteCart} className="bg-red-600 rounded text-white px-2 py-1">
-              Remove
-            </button>
-          </td>
-        </tr>
-
-         }) 
-        }
-      </tbody>
-    </table>
+    <Table className="text-base mb-6">
+      <TableHeader>
+        <TableRow className="border-b border-b-accent">
+          <TableHead>Product</TableHead>
+          <TableHead>Price</TableHead>
+          <TableHead>Quantity</TableHead>
+          <TableHead>Total</TableHead>
+          <TableHead>Action</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {cart.cart &&
+          cart.cart.map((item) => (
+            <TableRow className="border-b border-b-accent" key={item.id}>
+              <TableCell className="font-medium flex gap-3 items-center">
+                <img className="h-16 w-16" src="https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop" alt="image" />
+                <div>
+                  <p>{item.name}</p>
+                  <small>L size</small>
+                </div>
+              </TableCell>
+              <TableCell>৳ {item.price}</TableCell>
+              <TableCell>{item.quantity}</TableCell>
+              <TableCell>৳ 49.99</TableCell>
+              <TableCell>
+                <Button className="bg-red-600 text-white">Remove</Button>
+              </TableCell>
+            </TableRow>
+          ))}
+      </TableBody>
+    </Table>
   );
 };
 

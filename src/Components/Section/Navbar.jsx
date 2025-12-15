@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const cart = useSelector((state) => state.cartSlice);
 
+  console.log(cart);
   return (
     <header className="bg-white z-50 sticky top-0 border-b border-b-accent py-5">
       <div className="my-container">
@@ -37,7 +40,7 @@ const Navbar = () => {
               <Link to="/cart">
                 <FaCartPlus className="text-2xl" />{" "}
                 <span className="text-sm text-white absolute -top-3 -right-4 bg-primary rounded-full px-2 py-1">
-                  0
+                  {cart.cart.length > 0 ? cart.cart.length : 0}
                 </span>
               </Link>
             </div>
@@ -46,13 +49,12 @@ const Navbar = () => {
             </Link>
           </div>
 
-
           {/* hamburger Menu Button */}
           <button
             className="md:hidden text-2xl"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <FaBars className="fa-2xl"/>
+            <FaBars className="fa-2xl" />
           </button>
         </nav>
       </div>
