@@ -1,7 +1,12 @@
-import { FaAngleDown } from "react-icons/fa";
+
 import ProductSuggetion from "../Components/Section/ProductSuggetion";
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 const ProductDetails = () => {
   return (
     <>
@@ -53,52 +58,71 @@ const ProductDetails = () => {
                   className="max-w-20 border border-gray-200 rounded-sm"
                   placeholder="1"
                 />
+                {/* <Button></Button> */}
                 <button className="px-4 py-2 bg-neutral-900 rounded-sm text-white font-medium">
                   Add To Cart
                 </button>
               </div>
 
               {/* description  */}
-              <details
-                class="collapse bg-base-100 border border-base-300"
-                name="my-accordion-det-1"
-                open
+              <Accordion
+                type="single"
+                collapsible
+                className="w-full"
+                defaultValue="item-1"
               >
-                <summary class="collapse-title font-semibold">
-                  How do I create an account?
-                </summary>
-                <div class="collapse-content text-sm">
-                  Click the "Sign Up" button in the top right corner and follow
-                  the registration process.
-                </div>
-              </details>
-              <details
-                class="collapse bg-base-100 border border-base-300"
-                name="my-accordion-det-1"
-              >
-                <summary class="collapse-title font-semibold">
-                  I forgot my password. What should I do?
-                </summary>
-                <div class="collapse-content text-sm">
-                  Click on "Forgot Password" on the login page and follow the
-                  instructions sent to your email.
-                </div>
-              </details>
-              <details
-                class="collapse bg-base-100 border border-base-300"
-                name="my-accordion-det-1"
-              >
-                <summary class="collapse-title font-semibold">
-                  How do I update my profile information?
-                </summary>
-                <div class="collapse-content text-sm">
-                  Go to "My Account" settings and select "Edit Profile" to make
-                  changes.
-                </div>
-              </details>
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Product Information</AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <p>
+                      Our flagship product combines cutting-edge technology with
+                      sleek design. Built with premium materials, it offers
+                      unparalleled performance and reliability.
+                    </p>
+                    <p>
+                      Key features include advanced processing capabilities, and
+                      an intuitive user interface designed for both beginners
+                      and experts.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Shipping Details</AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <p>
+                      We offer worldwide shipping through trusted courier
+                      partners. Standard delivery takes 3-5 business days, while
+                      express shipping ensures delivery within 1-2 business
+                      days.
+                    </p>
+                    <p>
+                      All orders are carefully packaged and fully insured. Track
+                      your shipment in real-time through our dedicated tracking
+                      portal.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Return Policy</AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <p>
+                      We stand behind our products with a comprehensive 30-day
+                      return policy. If you&apos;re not completely satisfied,
+                      simply return the item in its original condition.
+                    </p>
+                    <p>
+                      Our hassle-free return process includes free return
+                      shipping and full refunds processed within 48 hours of
+                      receiving the returned item.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
           </div>
         </div>
+
+
         {/* suggested product  */}
       </section>
       <ProductSuggetion />
