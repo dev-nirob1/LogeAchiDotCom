@@ -46,17 +46,17 @@ const Registration = () => {
           />
         </label>
         {/* Register button  */}
-        <button className="cursor-pointer mt-2 w-full py-2 bg-neutral-900 text-white font-medium rounded-sm">
+        <button className="cursor-pointer mt-2 w-full py-2 bg-primary text-white font-medium rounded-sm">
           Register
         </button>
 
         <div className="text-center mt-6">
           Already Have an account?{" "}
-          <Link to="/login" className="text-amber-500 font-semibold">
+          <Link to="/login" className="text-primary font-semibold">
             {" "}
             Login Here.
           </Link>
-          <Link to="" className="text-amber-500 font-semibold block">Forgot Password!</Link>
+          <Link to="" className="text-primary font-semibold block">Forgot Password!</Link>
         </div>
       </form>
     </div>

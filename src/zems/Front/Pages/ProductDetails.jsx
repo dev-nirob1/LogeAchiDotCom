@@ -5,8 +5,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const ProductDetails = () => {
   return (
@@ -25,31 +26,27 @@ const ProductDetails = () => {
             {/* details content  */}
             <div className="space-y-2">
               <h3 className="text-2xl font-medium">Classic Cotton T-Shirt</h3>
-              <h3 className="text-xl font-medium text-amber-500">
+              <h3 className="text-xl font-medium text-primary">
                 Price: ৳ 1490
               </h3>
               {/* sizes  */}
               <div>
                 {/* available sizes  */}
                 <h5 className="sub-title mb-1">Size</h5>
-
-                <div className="flex gap-4">
-                  <div className="border border-gray-200 px-4 py-2 rounded-sm font-bold">
-                    S
-                  </div>
-                  <div className="border border-gray-200 px-4 py-2 rounded-sm font-bold">
+                <ToggleGroup type="single" className="gap-2">
+                  <ToggleGroupItem className="border border-accent" value="m">
                     M
-                  </div>
-                  <div className="border border-gray-200 px-4 py-2 rounded-sm font-bold">
+                  </ToggleGroupItem>
+                  <ToggleGroupItem className="border border-accent" value="l">
                     L
-                  </div>
-                  <div className="border border-gray-200 px-4 py-2 rounded-sm font-bold">
+                  </ToggleGroupItem>
+                  <ToggleGroupItem className="border border-accent" value="xl">
                     XL
-                  </div>
-                  <div className="border border-gray-200 px-4 py-2 rounded-sm font-bold">
+                  </ToggleGroupItem>
+                  <ToggleGroupItem className="border border-accent" value="xxl">
                     XXL
-                  </div>
-                </div>
+                  </ToggleGroupItem>
+                </ToggleGroup>
               </div>
 
               {/* quantity update  */}
@@ -60,9 +57,7 @@ const ProductDetails = () => {
                   placeholder="1"
                 />
                 {/* <Button></Button> */}
-                <button className="px-4 py-2 bg-neutral-900 rounded-sm text-white font-medium">
-                  Add To Cart
-                </button>
+                <Button className="rounded-sm text-white">Add To Cart</Button>
               </div>
 
               {/* description  */}
@@ -74,7 +69,7 @@ const ProductDetails = () => {
               >
                 <AccordionItem value="item-1">
                   <AccordionTrigger>Product Information</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                  <AccordionContent className="flex flex-col text-balance">
                     <p>
                       Our flagship product combines cutting-edge technology with
                       sleek design. Built with premium materials, it offers
@@ -89,7 +84,7 @@ const ProductDetails = () => {
                 </AccordionItem>
                 <AccordionItem value="item-2">
                   <AccordionTrigger>Shipping Details</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                  <AccordionContent className="flex flex-col text-balance">
                     <p>
                       We offer worldwide shipping through trusted courier
                       partners. Standard delivery takes 3-5 business days, while
@@ -105,7 +100,7 @@ const ProductDetails = () => {
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Return Policy</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                  <AccordionContent className="flex flex-col text-balance">
                     <p>
                       We stand behind our products with a comprehensive 30-day
                       return policy. If you&apos;re not completely satisfied,
@@ -122,7 +117,6 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-
 
         {/* suggested product  */}
       </section>

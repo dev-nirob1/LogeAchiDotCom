@@ -21,17 +21,17 @@ const Login = () => {
           />
         </label>
         {/* login button  */}
-        <button className="cursor-pointer mt-2 w-full py-2 bg-neutral-900 text-white font-medium rounded-sm">
+        <button className="cursor-pointer mt-2 w-full py-2 bg-primary text-white font-medium rounded-sm">
           Login
         </button>
 
         <div className="text-center mt-6">
           Don't Have an account?{" "}
-          <Link to="/registration" className="text-amber-500 font-semibold">
+          <Link to="/registration" className="text-primary font-semibold">
             {" "}
             Registration Here.
           </Link>
-          <Link to="" className="text-amber-500 font-semibold block">Forgot Password!</Link>
+          <Link to="" className="text-primary font-semibold block">Forgot Password!</Link>
         </div>
       </form>
     </div>

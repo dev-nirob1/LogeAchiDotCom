@@ -78,8 +78,8 @@ const Footer = () => {
         </div>
 
         {/* foooter bottom part  */}
-        <div className="border-t border-t-gray-50 text-center">
-          <p>
+        <div className="border-t border-t-accent text-center">
+          <p className="py-3">
             &copy; copyright 2025. Developed by{" "}
             <a
               className="text-primary"
