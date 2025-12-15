@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleAddToCart } from "../../../../store/cartSlice";
-
+import { Button } from "@/components/ui/button"
 const ProductCard = ({ item }) => {
   const {id, name, price, image } = item;
   const cartData = {
@@ -33,9 +33,10 @@ const ProductCard = ({ item }) => {
           <p>BDT {price} ৳</p>
           <del>{price} ৳</del>
         </div>
-        <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary mt-2">
+        <Button className="w-full text-white mt-2" onClick={HandleAddToCart}>Add To Cart</Button>
+        {/* <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary mt-2">
           Add To Cart
-        </button>
+        </button> */}
       </div>
     </div>
   );
