@@ -7,6 +7,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ProductPage = () => {
   const allProducts = [
@@ -98,13 +105,17 @@ const ProductPage = () => {
       <section className="my-container">
         <div className="flex justify-between items-center pb-5 mb-6 border-b border-b-accent">
           <h4 className="text-2xl font-medium">All Product</h4>
-          <select className="rounded">
-            <option value="" disabled>
-              Price
-            </option>
-            <option value="low-high">Low to High</option>
-            <option value="high-low">Hight to Low</option>
-          </select>
+
+          {/* select dropdown  */}
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Price" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="low-high">Price: Low to High</SelectItem>
+              <SelectItem value="heigh-low">Price: High to Low</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="grid md:grid-cols-5 gap-6">

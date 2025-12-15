@@ -1,5 +1,12 @@
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import ProductCard from "../Components/Widget/ProductCard";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const FlashSale = () => {
   const allProducts = [
@@ -91,13 +98,15 @@ const FlashSale = () => {
       <section className="my-container">
         <div className="flex justify-between items-center mb-6">
           <h4 className="text-2xl font-medium">All Product</h4>
-          <select className="rounded">
-            <option value="" disabled>
-              Price
-            </option>
-            <option value="low-high">Low to High</option>
-            <option value="high-low">Hight to Low</option>
-          </select>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Price" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="light">Price: Low to High</SelectItem>
+              <SelectItem value="dark">Price: High to Low</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {allProducts.map((item) => {
