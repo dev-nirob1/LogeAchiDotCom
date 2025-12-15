@@ -1,4 +1,3 @@
-
 import ProductSuggetion from "../Components/Section/ProductSuggetion";
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import {
@@ -7,6 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+
+
 const ProductDetails = () => {
   return (
     <>
