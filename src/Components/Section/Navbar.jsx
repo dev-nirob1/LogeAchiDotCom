@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <header className="bg-white fixed top-0 left-0 w-full z-50 border-b border-b-accent">
+      <header className="bg-white sticky top-0 left-0 w-full z-50 border-b border-b-accent">
         <div className="my-container py-5 relative">
           <nav className="flex justify-between items-center">
             {/* Logo */}

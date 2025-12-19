@@ -32,8 +32,7 @@ const ProductSuggetion = () => {
     },
   ];
   return (
-    <div className="bg-accent">
-      <section className="my-container">
+    <section className="my-container">
       <h3 className="text-3xl font-medium mb-4">Product you may like</h3>
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {productSuggetion.map((item) => {
@@ -41,7 +40,6 @@ const ProductSuggetion = () => {
         })}
       </div>
     </section>
-    </div>
   );
 };
 

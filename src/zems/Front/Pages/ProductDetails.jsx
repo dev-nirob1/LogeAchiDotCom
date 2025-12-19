@@ -8,13 +8,14 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import ProductReviews from "../Components/Section/ProductReviewSection";
 
 const ProductDetails = () => {
   return (
     <>
       <BreadCrumb routeName={"Product Details"} />
       <section className="">
-        <div className="container mx-auto px-2">
+        <div className="my-container">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="w-full-h-full">
               <img
@@ -120,6 +121,7 @@ const ProductDetails = () => {
 
         {/* suggested product  */}
       </section>
+      <ProductReviews/>
       <ProductSuggetion />
     </>
   );

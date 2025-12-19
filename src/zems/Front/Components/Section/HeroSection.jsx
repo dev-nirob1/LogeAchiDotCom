@@ -55,8 +55,8 @@ const HeroSection = () => {
               </div>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious className="hidden md:vissible -left-8 top-1/2" />
-          <CarouselNext className="hidden md:vissible -right-8 top-1/2" />
+          <CarouselPrevious className="invisible lg:visible -left-8 top-1/2" />
+          <CarouselNext className="invisible lg:visible -right-8 top-1/2" />
         </Carousel>
       </div>
     </section>
