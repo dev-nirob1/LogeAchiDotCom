@@ -67,10 +67,10 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap">
               <input
-                className="bg-white max-w-7/12 rounded-l"
+                className="bg-white border border-accent max-w-7/12 rounded-l"
                 placeholder="Enter your Email"
               />
-              <button className="text-white bg-primary px-3 rounded-l-none rounded-r cursor-pointer">
+              <button className="border border-accent px-3 rounded-l-none rounded-r cursor-pointer">
                 Subscribe
               </button>
             </div>
@@ -82,7 +82,7 @@ const Footer = () => {
           <p className="py-3">
             &copy; copyright 2025. Developed by{" "}
             <a
-              className="text-primary"
+              className="text-yellow-400"
               href="https://webpoka.com/"
               target="_blank"
             >
