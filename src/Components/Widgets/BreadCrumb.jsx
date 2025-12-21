@@ -1,17 +1,34 @@
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const BreadCrumb = ({ routeName }) => {
   return (
-    <div className="bg-accent">
-      <ul className="my-container flex items-center space-x-2 py-4">
-        <li className="after:content-['>'] after:mx-2 last:after:content-none">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="after:content-['>'] after:mx-2 last:after:content-none">
-          {routeName}
-        </li>
-      </ul>
-    </div>
+    <Breadcrumb className="bg-accent py-3 text-base">
+      <BreadcrumbList className="my-container text-base">
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/">Home</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/components">{routeName}</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 

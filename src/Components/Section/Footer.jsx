@@ -72,7 +72,7 @@ const Footer = () => {
               />
               <button className="border border-accent px-3 rounded-l-none rounded-r cursor-pointer">
                 Subscribe
-              </button>
+               </button>
             </div>
           </div>
         </div>
