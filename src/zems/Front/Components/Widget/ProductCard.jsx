@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleAddToCart } from "../../../../store/cartSlice";
 import { Button } from "@/components/ui/button"
-
 const ProductCard = ({ item }) => {
   const {id, title, price, thumbnail } = item;
   const cartData = {
