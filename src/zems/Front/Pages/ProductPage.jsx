@@ -152,7 +152,7 @@ const ProductPage = () => {
               <ul className="space-y-2">
                 {categories.map((cat, i) => (
                   <li key={i}>
-                    <Link to={`/products/${cat.slug}`} className="block p-2 bg-accent">
+                    <Link to={`/products/${cat.slug}`} className="block p-2 bg-accent rounded">
                       {cat.name}
                     </Link>
                   </li>

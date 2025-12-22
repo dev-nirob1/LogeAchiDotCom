@@ -42,7 +42,7 @@ const CategoriesSection = () => {
     };
     fetchCategories();
   }, []);
-  
+
   return (
     <section className="bg-accent">
       <div className="my-container">
