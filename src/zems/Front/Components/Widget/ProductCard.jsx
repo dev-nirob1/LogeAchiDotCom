@@ -2,13 +2,14 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleAddToCart } from "../../../../store/cartSlice";
 import { Button } from "@/components/ui/button"
+
 const ProductCard = ({ item }) => {
-  const {id, name, price, image } = item;
+  const {id, title, price, thumbnail } = item;
   const cartData = {
     id: id,
-    name: name,
+    name: title,
     price:price, 
-    image: image
+    image: thumbnail
   }
   const dispatch = useDispatch()
 
@@ -21,22 +22,19 @@ const ProductCard = ({ item }) => {
       <div className="w-full rounded-md overflow-hidden h-[260px]">
         <img
           className="group-hover:scale-110 transition duration-500"
-          src={image}
+          src={thumbnail}
           alt=""
         />
       </div>
       <div className="card-body font-medium pt-3">
-        <Link className="group-hover:text-blue-500" to="/product/1">
-          <h5 className="sub-title">{name}</h5>
+        <Link to="/product/1">
+          <h5 className="group-hover:text-blue-400 transition sub-title">{title}</h5>
         </Link>
         <div className="flex items-center gap-2">
           <p>BDT {price} ৳</p>
           <del>{price} ৳</del>
         </div>
         <Button className="w-full text-white mt-2" onClick={HandleAddToCart}>Add To Cart</Button>
-        {/* <button onClick={HandleAddToCart} className="w-full py-2 text-white bg-primary mt-2">
-          Add To Cart
-        </button> */}
       </div>
     </div>
   );
