@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   // const allProducts = [
@@ -101,16 +102,25 @@ const ProductPage = () => {
   //   },
   // ];
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
       const res = await axios.get("https://dummyjson.com/products?limit=100");
       console.log(res.data);
       setProducts(res.data.products);
-      setIsLoading(false);
+      // setIsLoading(false);
     };
     fetchProduct();
+  }, []);
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const res = await axios.get("https://dummyjson.com/products/categories");
+      // console.log(res.data);
+      setCategories(res.data);
+      // setIsLoading(false);
+    };
+    fetchCategory();
   }, []);
 
   return (
@@ -139,82 +149,15 @@ const ProductPage = () => {
               <h5 className="sub-title bg-secondary rounded-md p-2 mb-2">
                 Category
               </h5>
-
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                defaultValue="item-1"
-              >
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Mens</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance pl-4">
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="t-shirt" defaultChecked />
-                      <label htmlFor="t-shirt">T-shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="shirt" />
-                      <label htmlFor="shirt">Shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="jacket" />
-                      <label htmlFor="jacket">Jacket</label>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Women</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance pl-4">
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="t-shirt" />
-                      <label htmlFor="t-shirt">T-shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="shirt" />
-                      <label htmlFor="shirt">Shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="jacket" />
-                      <label htmlFor="jacket">Jacket</label>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>Baby</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance pl-4">
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="t-shirt" />
-                      <label htmlFor="t-shirt">T-shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="shirt" />
-                      <label htmlFor="shirt">Shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="jacket" />
-                      <label htmlFor="jacket">Jacket</label>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>Accessories</AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance pl-4">
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="t-shirt" />
-                      <label htmlFor="t-shirt">T-shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="shirt" />
-                      <label htmlFor="shirt">Shirt</label>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Checkbox id="jacket" />
-                      <label htmlFor="jacket">Jacket</label>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <ul className="space-y-2">
+                {categories.map((cat, i) => (
+                  <li key={i}>
+                    <Link to={`/products/${cat.slug}`} className="block p-2 bg-accent">
+                      {cat.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
