@@ -9,30 +9,53 @@ import {
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import ProductReviews from "../Components/Section/ProductReviewSection";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ProductDetails = () => {
+  const [productDetails, setProductDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+  const productId = parseInt(id);
+  console.log(productId);
+  useEffect(() => {
+    const getSingleProduct = async () => {
+      const res = await axios.get(`https://dummyjson.com/products/${productId}`);
+      setProductDetails(res.data);
+      
+      setIsLoading(false)
+    };
+    getSingleProduct();
+  }, [productId]);
+  console.log(productDetails);
+
+  if(isLoading){
+    return <h1>Loading...</h1>
+  }
   return (
     <>
       <BreadCrumb routeName={"Product Details"} />
       <section className="">
         <div className="my-container">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="w-full-h-full">
+            <div className="w-full h-full">
               <img
                 className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={productDetails.images[0]}
                 alt=""
               />
             </div>
             {/* details content  */}
             <div className="space-y-2">
-              <h3 className="text-2xl font-medium">Classic Cotton T-Shirt</h3>
+              <h3 className="text-2xl font-medium">{productDetails.title}</h3>
               <h3 className="text-xl font-medium text-primary">
-                Price: ৳ 1490
+                Price: $ {productDetails.price}
               </h3>
+
               {/* sizes  */}
-              <div>
                 {/* available sizes  */}
+              {/* <div>
                 <h5 className="sub-title mb-1">Size</h5>
                 <ToggleGroup type="single" className="gap-2">
                   <ToggleGroupItem className="border border-accent" value="m">
@@ -48,7 +71,7 @@ const ProductDetails = () => {
                     XXL
                   </ToggleGroupItem>
                 </ToggleGroup>
-              </div>
+              </div> */}
 
               {/* quantity update  */}
               <div className="flex items-center gap-4 mt-8">
@@ -72,14 +95,7 @@ const ProductDetails = () => {
                   <AccordionTrigger>Product Information</AccordionTrigger>
                   <AccordionContent className="flex flex-col text-balance">
                     <p>
-                      Our flagship product combines cutting-edge technology with
-                      sleek design. Built with premium materials, it offers
-                      unparalleled performance and reliability.
-                    </p>
-                    <p>
-                      Key features include advanced processing capabilities, and
-                      an intuitive user interface designed for both beginners
-                      and experts.
+                      {productDetails.description}
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -87,15 +103,7 @@ const ProductDetails = () => {
                   <AccordionTrigger>Shipping Details</AccordionTrigger>
                   <AccordionContent className="flex flex-col text-balance">
                     <p>
-                      We offer worldwide shipping through trusted courier
-                      partners. Standard delivery takes 3-5 business days, while
-                      express shipping ensures delivery within 1-2 business
-                      days.
-                    </p>
-                    <p>
-                      All orders are carefully packaged and fully insured. Track
-                      your shipment in real-time through our dedicated tracking
-                      portal.
+                     {productDetails.shippingInformation}
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -103,14 +111,7 @@ const ProductDetails = () => {
                   <AccordionTrigger>Return Policy</AccordionTrigger>
                   <AccordionContent className="flex flex-col text-balance">
                     <p>
-                      We stand behind our products with a comprehensive 30-day
-                      return policy. If you&apos;re not completely satisfied,
-                      simply return the item in its original condition.
-                    </p>
-                    <p>
-                      Our hassle-free return process includes free return
-                      shipping and full refunds processed within 48 hours of
-                      receiving the returned item.
+                     {productDetails.returnPolicy}
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -121,7 +122,7 @@ const ProductDetails = () => {
 
         {/* suggested product  */}
       </section>
-      <ProductReviews/>
+      <ProductReviews rating={productDetails.rating} reviews={productDetails.reviews} />
       <ProductSuggetion />
     </>
   );

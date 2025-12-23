@@ -1,43 +1,21 @@
 import { FaStar } from "react-icons/fa";
 
-const reviews = [
-  {
-    id: 1,
-    name: "Rahim Ahmed",
-    rating: 5,
-    date: "2 days ago",
-    comment:
-      "Excellent quality! The fabric feels premium and delivery was super fast.",
-  },
-  {
-    id: 2,
-    name: "Nusrat Jahan",
-    rating: 4,
-    date: "1 week ago",
-    comment:
-      "Very stylish and comfortable. Worth the price. Will buy again!",
-  },
-];
-
-const ProductReviews = () => {
+const ProductReviews = ({ reviews, rating }) => {
   return (
     <section className="bg-accent">
       <div className="my-container">
         <h2 className="text-2xl font-semibold mb-6">Customer Reviews</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-                      {/* Reviews List */}
+          {/* Reviews List */}
           <div className="md:col-span-2 space-y-6">
             {reviews.map((review) => (
-              <div
-                key={review.id}
-                className="border rounded-xl p-6 bg-white"
-              >
+              <div key={review.id} className="border rounded-xl p-6 bg-white">
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <p className="font-medium">{review.name}</p>
                     <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
+                      {reviews.map((review, i) => (
                         <FaStar
                           key={i}
                           className={`text-sm ${
@@ -49,9 +27,7 @@ const ProductReviews = () => {
                       ))}
                     </div>
                   </div>
-                  <span className="text-sm text-gray-400">
-                    {review.date}
-                  </span>
+                  <span className="text-sm text-gray-400">{review.date}</span>
                 </div>
 
                 <p className="text-gray-600">{review.comment}</p>
@@ -64,23 +40,17 @@ const ProductReviews = () => {
           </div>
           {/* Rating Summary */}
           <div className="border rounded-xl p-6 h-fit bg-white">
-            <p className="text-4xl font-bold">4.5</p>
+            <p className="text-4xl font-bold">{rating}</p>
             <div className="flex items-center gap-1 my-2">
               {[...Array(5)].map((_, i) => (
                 <FaStar
                   key={i}
-                  className={`${
-                    i < 4 ? "text-yellow-400" : "text-gray-300"
-                  }`}
+                  className={`${i < 4 ? "text-yellow-400" : "text-gray-300"}`}
                 />
               ))}
             </div>
-            <p className="text-sm text-gray-500">
-              Based on 120 reviews
-            </p>
+            <p className="text-sm text-gray-500">Based on 120 reviews</p>
           </div>
-
-
         </div>
       </div>
     </section>
