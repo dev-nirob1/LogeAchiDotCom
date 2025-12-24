@@ -26,7 +26,7 @@ const ProductCard = ({ item }) => {
         />
       </div>
       <div className="card-body font-medium pt-3">
-        <Link to="/product/1">
+        <Link to={`/product/${id}`}>
           <h5 className="group-hover:text-blue-400 transition sub-title">{title}</h5>
         </Link>
         <div className="flex items-center gap-2">

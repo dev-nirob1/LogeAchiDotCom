@@ -45,6 +45,7 @@ const ProductDetails = () => {
                 src={productDetails.images[0]}
                 alt=""
               />
+
             </div>
             {/* details content  */}
             <div className="space-y-2">
