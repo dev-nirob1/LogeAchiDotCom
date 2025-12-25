@@ -8,6 +8,7 @@ import WhyChooseUs from "../Components/Section/WhyChooseUs";
 // import { useSelector } from 'react-redux'
 import { useEffect, useState } from "react";
 import axios from "axios";
+import FlashSaleBanner from "../Components/Section/FlashSaleBanner";
 
 const HomePage = () => {
   //  const home = useSelector((state) => state.homeSlice.home)
@@ -42,6 +43,7 @@ const HomePage = () => {
       <WhyChooseUs />
       <CategoriesSection />
       <FeaturedProduct featured={featured} />
+      <FlashSaleBanner/>
       {/* <NewArrivals newArrivals={newArrivals} /> */}
       <BestSellingProduct bestSelling={bestSelling} />
     </>
