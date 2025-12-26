@@ -22,7 +22,7 @@ const CategoriesSection = () => {
               <Link
                 to={`/products/${item.slug}`}
                 key={i}
-                className="group relative border flex flex-col items-center gap-3 p-6 bg-white"
+                className="group relative border rounded-md flex flex-col items-center gap-3 p-6 bg-white"
               >
                 <span className="text-3xl">{item.icon}
                 </span>
