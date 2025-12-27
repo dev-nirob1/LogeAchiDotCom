@@ -1,13 +1,32 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import { FaCartPlus, FaXmark } from "react-icons/fa6";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const cart = useSelector((state) => state.cartSlice);
+
+  const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState([]);
+
+  useEffect(() => {
+    const fetchSearch = async () => {
+      const res = await axios.get(
+        `https://dummyjson.com/products/search?q=${search}`
+      );
+      if (!search || search.length < 2) {
+        setSearchData([]);
+        return;
+      } else {
+        setSearchData(res.data.products);
+      }
+    };
+    fetchSearch();
+  }, [search]);
+  const suggetion = searchData.slice(0, 5);
+  // console.log(search, searchData);
 
   return (
     <>
@@ -52,7 +71,7 @@ const Navbar = () => {
               <Link to="/cart" className="relative">
                 <FaCartPlus className="text-2xl" />
                 <span className="absolute -top-3 -right-4 bg-primary text-white text-xs rounded-full px-2 py-1">
-                  {cart.cart.length}
+                  0
                 </span>
               </Link>
 
@@ -82,12 +101,36 @@ const Navbar = () => {
         }`}
       >
         <div className="my-container py-2">
-          <div className="flex items-center gap-3 p-3">
+          <div className="flex items-center gap-3 p-3 relative">
             <input
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
               type="text"
               placeholder="Search products, categories..."
               className="border border-accent rounded-md w-full lg:max-w-xl mx-auto outline-none"
             />
+            {searchData.length > 0 && (
+              <ul className="absolute top-full inset-x-0 md:max-w-xl mx-auto bg-white space-y-2 p-4">
+                {suggetion.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      to={`/product/${item.id}`}
+                      onClick={() => setSearchData([])}
+                      className="bg-accent p-2 flex items-center rounded"
+                    >
+                      <img className="w-7 h-7" src={item.thumbnail} alt="" />{" "}
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <button className="bg-primary p-2 text-white w-full">
+                    Show All result
+                  </button>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

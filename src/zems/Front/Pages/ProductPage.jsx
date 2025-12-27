@@ -113,6 +113,9 @@ const ProductPage = () => {
     };
     fetchProduct();
   }, []);
+
+
+  
   useEffect(() => {
     const fetchCategory = async () => {
       const res = await axios.get("https://dummyjson.com/products/categories");

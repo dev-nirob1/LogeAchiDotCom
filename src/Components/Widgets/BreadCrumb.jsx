@@ -23,10 +23,6 @@ const BreadCrumb = ({ routeName }) => {
             <Link to="/components">{routeName}</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
   );

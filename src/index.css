@@ -5,23 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/forms";
 
-@theme {
+/* @theme {
   --color-primary: #b99668;
-  /* --color-secondary: #DCC9A7; */
   --color-secondary: #ede2cc;
   --color-accent: #f7f3e8;
-  /* --color-accent: #EDE2CC; */
 
   --color-dark: #3b332d;
   --color-lighter-dark: #5a514a;
 
   --font-Montserrat: "Montserrat";
   --font-Inter: "Inter";
-}
+} */
 @layer base {
-  body {
+  /* body {
     @apply text-lighter-dark leading-relaxed font-Montserrat;
-  }
+  } */
   h1,
   h2,
   h3,
@@ -110,7 +108,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary-foreground: oklch(98.511% 0.00011 271.152);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);

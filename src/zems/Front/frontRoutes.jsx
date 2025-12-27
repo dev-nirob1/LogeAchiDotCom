@@ -12,7 +12,7 @@ const frontRoutes = [
     element: <HomePage />,
   },
   {
-    path: "/products/:category?",
+    path: "/products",
     element: <ProductPage />,
   },
   {
