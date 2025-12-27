@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const ProductPage = () => {
   // const allProducts = [
@@ -104,6 +104,10 @@ const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
+  const [searchCategory] = useSearchParams();
+  // console.log(searchCategory);
+  const category = searchCategory.get("category");
+
   useEffect(() => {
     const fetchProduct = async () => {
       const res = await axios.get("https://dummyjson.com/products?limit=100");
@@ -114,8 +118,10 @@ const ProductPage = () => {
     fetchProduct();
   }, []);
 
+  const filteredData = category
+    ? products.filter((item) => item.category === category)
+    : products;
 
-  
   useEffect(() => {
     const fetchCategory = async () => {
       const res = await axios.get("https://dummyjson.com/products/categories");
@@ -155,7 +161,10 @@ const ProductPage = () => {
               <ul className="space-y-2">
                 {categories.map((cat, i) => (
                   <li key={i}>
-                    <Link to={`/products/${cat.slug}`} className="block p-2 bg-accent rounded">
+                    <Link
+                      to={`/products?category=${cat.slug}`}
+                      className="block p-2 bg-accent rounded"
+                    >
                       {cat.name}
                     </Link>
                   </li>
@@ -165,8 +174,8 @@ const ProductPage = () => {
           </div>
 
           {/* product card  */}
-          <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {products.map((item) => {
+          <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-4 h-fit">
+            {filteredData.map((item) => {
               return <ProductCard item={item} key={item.id} />;
             })}
           </div>
