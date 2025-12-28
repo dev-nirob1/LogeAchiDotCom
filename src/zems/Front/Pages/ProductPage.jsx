@@ -1,13 +1,6 @@
 import BreadCrumb from "../../../Components/Widgets/BreadCrumb";
 import ProductCard from "../Components/Widget/ProductCard";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
   Select,
   SelectContent,
   SelectItem,
@@ -18,150 +11,94 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
+const LIMIT = 12;
+
 const ProductPage = () => {
-  // const allProducts = [
-  //   {
-  //     id: 1,
-  //     name: "Classic Cotton T-Shirt",
-  //     price: 29.99,
-  //     category: "tshirt",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Premium Sports Hoodie",
-  //     price: 49.99,
-  //     category: "hoodie",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Slim Fit Denim Jacket",
-  //     price: 69.99,
-  //     category: "jacket",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Casual Summer Shorts",
-  //     price: 24.99,
-  //     category: "shorts",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Everyday Track Pants",
-  //     price: 34.99,
-  //     category: "pants",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Sports Performance Tee",
-  //     price: 27.99,
-  //     category: "tshirt",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Winter Fleece Jacket",
-  //     price: 89.99,
-  //     category: "jacket",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Urban Cargo Pants",
-  //     price: 39.99,
-  //     category: "pants",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Minimalist Polo Shirt",
-  //     price: 32.99,
-  //     category: "tshirt",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Premium Leather Jacket",
-  //     price: 129.99,
-  //     category: "jacket",
-  //     image:
-  //       "https://images.unsplash.com/photo-1740711152088-88a009e877bb?q=80&w=580&auto=format&fit=crop",
-  //   },
-  // ];
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [total, setTotal] = useState(0);
+
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sort = searchParams.get("sort");
-  // console.log(searchCategory);
+  // ===== Query params =====
   const category = searchParams.get("category");
-  const page = Number(searchParams.get("page")) || 1
-  const limit = 12;
-  const skip = (page - 1) * limit
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const res = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
-      console.log(res.data);
-      setProducts(res.data.products);
-      // setIsLoading(false);
-    };
-    fetchProduct();
-  }, [limit, skip]);
+  const sort = searchParams.get("sort");
+  const page = Number(searchParams.get("page")) || 1;
 
+  const skip = (page - 1) * LIMIT;
+
+  // ===== Fetch products =====
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(
+          `https://dummyjson.com/products?limit=${LIMIT}&skip=${skip}`
+        );
+        setProducts(res.data.products);
+        setTotal(res.data.total);
+      } catch (error) {
+        console.error("Product fetch failed", error);
+      }
+    };
+
+    fetchProducts();
+  }, [skip]);
+
+  // ===== Fetch categories =====
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get(
+          "https://dummyjson.com/products/categories"
+        );
+        setCategories(res.data);
+      } catch (error) {
+        console.error("Category fetch failed", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  // ===== Filter by category =====
   const filteredProducts = category
     ? products.filter((item) => item.category === category)
     : products;
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      const res = await axios.get("https://dummyjson.com/products/categories");
-      // console.log(res.data);
-      setCategories(res.data);
-      // setIsLoading(false);
-    };
-    fetchCategory();
-  }, []);
+  // ===== Sort products =====
   const sortedProducts = [...filteredProducts];
 
   if (sort === "price_asc") {
     sortedProducts.sort((a, b) => a.price - b.price);
   }
+
   if (sort === "price_desc") {
     sortedProducts.sort((a, b) => b.price - a.price);
   }
+
+  const totalPages = Math.ceil(total / LIMIT);
+
   return (
     <>
-      <BreadCrumb routeName={"Products"} />
-      <section className="my-container">
-        <div className="flex justify-between items-center pb-5 mb-6 border-b border-b-accent">
-          <h4 className="text-2xl font-medium">All Product</h4>
+      <BreadCrumb routeName="Products" />
 
-          {/* select dropdown  */}
+      <section className="my-container">
+        {/* Header */}
+        <div className="flex justify-between items-center pb-5 mb-6 border-b">
+          <h4 className="text-2xl font-medium">All Products</h4>
+
           <Select
             value={sort || ""}
             onValueChange={(value) =>
               setSearchParams({
-               category: category || '',
+                category: category || "",
                 sort: value,
-                page: 1
+                page: 1,
               })
             }
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Price" />
+              <SelectValue placeholder="Sort by price" />
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem value="price_asc">Price: Low to High</SelectItem>
@@ -169,43 +106,77 @@ const ProductPage = () => {
             </SelectContent>
           </Select>
         </div>
-            <button onClick={()=> {
-              setSearchParams({
-                category: category || '',
-                sort: sort || '',
-                limit: limit || '',
-                skip: skip
-              })
-            }}>prev</button>
-            <button>next</button>
 
+        {/* Layout */}
         <div className="grid md:grid-cols-5 gap-6">
-          <div className="border border-accent rounded-md p-3 h-fit">
-            {/* filter option  */}
-            <div>
-              <h5 className="sub-title bg-secondary rounded-md p-2 mb-2">
-                Category
-              </h5>
-              <ul className="space-y-2">
-                {categories.map((cat, i) => (
-                  <li key={i}>
-                    <Link
-                      to={`/products?category=${cat.slug}`}
-                      className="block p-2 bg-accent rounded"
-                    >
-                      {cat.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Sidebar */}
+          <div className="border rounded-md p-3 h-fit">
+            <h5 className="font-medium mb-3">Categories</h5>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/products?page=1"
+                  className="block p-2 bg-accent rounded"
+                >
+                  All
+                </Link>
+              </li>
+
+              {categories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    to={`/products?category=${cat.slug}&page=1`}
+                    className="block p-2 bg-accent rounded"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* product card  */}
-          <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-4 h-fit">
-            {sortedProducts.map((item) => {
-              return <ProductCard item={item} key={item.id} />;
-            })}
+          {/* Products */}
+          <div className="md:col-span-4">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {sortedProducts.map((item) => (
+                <ProductCard key={item.id} item={item} />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <div className="flex justify-center gap-4 mt-8">
+              <button
+                disabled={page === 1}
+                onClick={() =>
+                  setSearchParams({
+                    category: category || "",
+                    sort: sort || "",
+                    page: page - 1,
+                  })
+                }
+                className="px-4 py-2 border rounded disabled:opacity-50"
+              >
+                Prev
+              </button>
+
+              <span className="flex items-center">
+                Page {page} of {totalPages}
+              </span>
+
+              <button
+                disabled={page >= totalPages}
+                onClick={() =>
+                  setSearchParams({
+                    category: category || "",
+                    sort: sort || "",
+                    page: page + 1,
+                  })
+                }
+                className="px-4 py-2 border rounded disabled:opacity-50"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </section>
