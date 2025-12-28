@@ -20,7 +20,7 @@ const CategoriesSection = () => {
           {categories.map((item,i) => {
             return (
               <Link
-                to={`/products/${item.slug}`}
+                to={`/products?category=${item.slug}`}
                 key={i}
                 className="group relative border rounded-md flex flex-col items-center gap-3 p-6 bg-white"
               >

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/forms";
 
-/* @theme {
+@theme {
   --color-primary: #b99668;
   --color-secondary: #ede2cc;
   --color-accent: #f7f3e8;
@@ -15,7 +15,7 @@
 
   --font-Montserrat: "Montserrat";
   --font-Inter: "Inter";
-} */
+}
 @layer base {
   /* body {
     @apply text-lighter-dark leading-relaxed font-Montserrat;

@@ -103,10 +103,11 @@ const ProductPage = () => {
   // ];
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchCategory] = useSearchParams();
+  const sort = searchParams.get("sort");
   // console.log(searchCategory);
-  const category = searchCategory.get("category");
+  const category = searchParams.get("category");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -118,7 +119,7 @@ const ProductPage = () => {
     fetchProduct();
   }, []);
 
-  const filteredData = category
+  const filteredProducts = category
     ? products.filter((item) => item.category === category)
     : products;
 
@@ -131,7 +132,14 @@ const ProductPage = () => {
     };
     fetchCategory();
   }, []);
+  const sortedProducts = [...filteredProducts];
 
+  if (sort === "price_asc") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  }
+  if (sort === "price_desc") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
   return (
     <>
       <BreadCrumb routeName={"Products"} />
@@ -140,13 +148,21 @@ const ProductPage = () => {
           <h4 className="text-2xl font-medium">All Product</h4>
 
           {/* select dropdown  */}
-          <Select>
+          <Select
+            value={sort || ""}
+            onValueChange={(value) =>
+              setSearchParams({
+               category: category || '',
+                sort: value,
+              })
+            }
+          >
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent className="bg-white">
-              <SelectItem value="low-high">Price: Low to High</SelectItem>
-              <SelectItem value="heigh-low">Price: High to Low</SelectItem>
+              <SelectItem value="price_asc">Price: Low to High</SelectItem>
+              <SelectItem value="price_desc">Price: High to Low</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -175,7 +191,7 @@ const ProductPage = () => {
 
           {/* product card  */}
           <div className="md:col-span-4 grid md:grid-cols-3 lg:grid-cols-4 gap-4 h-fit">
-            {filteredData.map((item) => {
+            {sortedProducts.map((item) => {
               return <ProductCard item={item} key={item.id} />;
             })}
           </div>
