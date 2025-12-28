@@ -108,16 +108,18 @@ const ProductPage = () => {
   const sort = searchParams.get("sort");
   // console.log(searchCategory);
   const category = searchParams.get("category");
-
+  const page = Number(searchParams.get("page")) || 1
+  const limit = 12;
+  const skip = (page - 1) * limit
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await axios.get("https://dummyjson.com/products?limit=100");
+      const res = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
       console.log(res.data);
       setProducts(res.data.products);
       // setIsLoading(false);
     };
     fetchProduct();
-  }, []);
+  }, [limit, skip]);
 
   const filteredProducts = category
     ? products.filter((item) => item.category === category)
@@ -154,6 +156,7 @@ const ProductPage = () => {
               setSearchParams({
                category: category || '',
                 sort: value,
+                page: 1
               })
             }
           >
@@ -166,6 +169,15 @@ const ProductPage = () => {
             </SelectContent>
           </Select>
         </div>
+            <button onClick={()=> {
+              setSearchParams({
+                category: category || '',
+                sort: sort || '',
+                limit: limit || '',
+                skip: skip
+              })
+            }}>prev</button>
+            <button>next</button>
 
         <div className="grid md:grid-cols-5 gap-6">
           <div className="border border-accent rounded-md p-3 h-fit">
